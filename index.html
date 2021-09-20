@@ -28,6 +28,7 @@
             --col5: #00b1a6;
             --col6: #FFFC00;
             --col7: #9763f6;
+            --col8: #06cc75;
         }
 
         body {
@@ -48,8 +49,8 @@
         input {
             margin-left: 0% !important;
             margin-right: 0% !important;
-            margin-top: 1%;
-            margin-bottom: 1%;
+            margin-top: 5%;
+            margin-bottom: 5%;
             width: 100%;
             box-sizing: border-box;
             outline: none;
@@ -133,7 +134,7 @@
             margin: auto;
             display: flex;
             width: 100%;
-            background: grey;
+            background: var(--col4);
             border-radius: 2px;
             cursor: pointer;
             padding: 1px;
@@ -142,7 +143,7 @@
         }
 
         .mintButton {
-            background: var(--col5);
+            background: var(--col8);
             color: white;
             cursor: pointer;
         }
@@ -170,6 +171,7 @@
         .faq {
             width: 70%;
             margin-left: 7%;
+            margin-top: 3%;
             justify-content: center;
             color: #333;
             position: relative;
@@ -177,12 +179,14 @@
         }
 
         .mint {
-            width: 57%;
             margin-top: 7%;
             margin-left: 37%;
             justify-content: center;
             position: relative;
             display: inherit;
+            margin-bottom: 5%;
+            width: 20%;
+            height: 30%;
         }
 
         .window {
@@ -194,11 +198,6 @@
 
         .window>h2 {
             color: #6665e0;
-        }
-
-        .faqItem>h3 {
-            border-bottom: 1px solid;
-            color: black;
         }
 
         .barcode {
@@ -240,7 +239,7 @@
         }
 
         .quickLink:hover {
-            color: #62aa67;
+            color: var(--col8);
         }
 
         .gallery {
@@ -375,6 +374,50 @@
         .iconSeven {
             background: var(--col7)
         }
+
+        @media all and (max-width: 600px) {
+
+            body {
+                font-size: 1.2rem;
+            }
+
+            input {
+                padding: 5%;
+            }
+
+            .button {
+                font-size: .9rem;
+            }
+
+            #loginBox {
+                width: 80%;
+
+            }
+
+            .centerBar {
+                width: 90%;
+                margin-left: 5% !important;
+                margin-right: 5% !important;
+            }
+
+            .faq {
+                width: 90%;
+                margin-left: 5% !important;
+                margin-right: 5% !important;
+                margin-top: 10%;
+            }
+
+            .mint {
+                margin-left: 5%;
+                margin-right: 5%;
+                width: 90%;
+            }
+
+            .bottomNav {
+                height: 2%;
+            }
+
+        }
     </style>
 
 
@@ -392,7 +435,10 @@
             if (options.indexOf(pwd) > -1) {
                 document.getElementById("loginScreen").style.display = "none"
                 document.getElementById("main").style.display = "block"
-            } else document.getElementById("warning").style.visibility = "visible"
+            } else {
+                document.getElementById("warning").style.visibility = "visible"
+                document.getElementById("pwd").value = ""
+            }
         }
 
     </script>
@@ -449,9 +495,9 @@
 
         function mint() {
 
-            let userAddress = document.getElementById("userAddress").value
+            let mintAmount = document.getElementById("mintAmount").value
 
-            if (userAddress !== "") {
+            if (mintAmount !== "") {
                 const myContract = new w.eth.Contract(abi, address);
                 console.log("Coming soon")
             } else {
@@ -520,37 +566,58 @@
         <div class="faq">
             <div class="barcode">000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</div>
             <div class="window">
-                <div class="close">
-                    <div>X</div>
-                </div>
-
-                <h2>FAQ</h2>
                 <div class="faqItem">
                     <h3>What are Colours?</h3>
                     <p>Colours are a series of the 10,000 most popular colours on the internet, scraped based on the top
                         Colours is a study of the most popular colours on the web, scraped based on the top 10,000 sites' page elements. Upon release, any person could claim a random colour from the data set for the mint price plus gas. Colours simply represent blockchain code of a specific hex code for a colour in an Ethereum-compatible token format, with attributes attached as metadata in JSON format.</p>
                 </div>
+            
+            </div>
+        </div>
 
+        <div class="faq">
+            <div class="barcode">000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</div>
+            <div class="window">
                 <div class="faqItem">
                     <h3>Where did you source the top 10,000 sites' colours?</h3>
                     <p>Majestic Million updates its database of top-linked-to websites in the world daily. The .csv file was exported and filtered. The top 10,000 sites were scraped using proprietary code and colours were extracted from page elements to the best of the code's ability.</p>
                 </div>
+            </div>
+        </div>
 
+        <div class="faq">
+            <div class="barcode">000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</div>
+            <div class="window">
                 <div class="faqItem">
                     <h3>Why are there 9,839 Colours and not 10,000?</h3>
                     <p>A number of the top 10,000 sites include redundant domains such as "google.de" or "t.co" which redirect to an existing top ranked site. In order to preserve the accuracy of the data set, these were removed during sanitization protecting the integrity of the data set from overrepresentation of a given entity and creating a final sample of 9,839 colours.</p>
                 </div>
+            </div>
+        </div>
 
+        <div class="faq">
+            <div class="barcode">000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</div>
+            <div class="window">
                 <div class="faqItem">
                     <h3>How are Colours valued?</h3>
                     <p>Colours are not investment products in any way, shape or form. Colours are representations of real-world colours on the blockchain and their value is derived from whatever people choose to do with them. The owner of a particular colour may choose to do things with their colour that creates or destroys value. Attributes exist on JSON files on IPFS referenced by the blockchain code that track the rarity of a colour according to how many websites have used the colour and other metrics. For some significant colours of top websites, the website is assigned to the Colour on the JSON file.</p>
                 </div>
+            </div>
+        </div>
 
+        <div class="faq">
+            <div class="barcode">000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</div>
+            <div class="window">
                 <div class="faqItem">
                     <h3>Who is responsible for Colours?</h3>
                     <p>Colours is a decentralized project with no leadership structure—the initial team simply deploys the code and files for the world. The deployment of the Colours contract and files represents freedom of expression on the blockchain.</p>
                 </div>
+            </div>
+        </div>
 
+        <div class="faq">
+            <div class="barcode">000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</div>
+            <div class="window">
                 <div class="faqItem">
                     <h3>How can I build with Colours?</h3>
                     <p>Through the Colours community, you may reach out to a colour owner and inquire about a collaboration. The Colours' hex code will be uploaded to the blockchain directly on a contract function, allowing people to match Token IDs with onchain data outputting the colour.</p>
@@ -562,8 +629,8 @@
             <div class="barcode">000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</div>
             <div class="window">
 
-                <label for="userAddress">Minting Address</label>
-                <input type="text" id="userAddress">
+                <label for="userAddress">Mint Amount</label>
+                <input type="text" id="mintAmount" disabled>
 
                 <div class="button mintButton" onclick="mint()">
                     Mint
@@ -573,34 +640,7 @@
             </div>
         </div>
 
-        <div class="gallery">
-            <div class="example">
-                <div class="barcode">000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</div>
-                <img class="NFT"
-                    src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.htmlcsscolor.com%2Fpreview%2Fgallery%2F007FFF.png&amp;f=1&amp;nofb=1" />
-            </div>
-
-            <div class="example">
-                <div class="barcode">000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</div>
-                <img class="NFT"
-                    src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.colorhexa.com%2F779ecb.png&f=1&nofb=1" />
-            </div>
-
-            <div class="example">
-                <div class="barcode">000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</div>
-                <img class="NFT"
-                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.htmlcsscolor.com%2Fpreview%2F128x128%2F99CCFF.png&f=1&nofb=1" />
-            </div>
-        </div>
-
         <div class="bottomNav">
-            <div class="bottomIcon iconOne"></div>
-            <div class="bottomIcon iconTwo"></div>
-            <div class="bottomIcon iconThree"></div>
-            <div class="bottomIcon iconFour"></div>
-            <div class="bottomIcon iconFive"></div>
-            <div class="bottomIcon iconSix"></div>
-            <div class="bottomIcon iconSeven"></div>
         </div>
     </div>
 </body>
