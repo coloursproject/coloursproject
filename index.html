@@ -1,0 +1,607 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="A premium commemorative collection of the top web colours">
+    <meta name="keywords" content="NFT, Blockchain, Ethereum">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Colours Project</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --col1: #e20074;
+            --col2: #3858f5;
+            --col3: #5daa72;
+            --col4: #f69868;
+            --col5: #00b1a6;
+            --col6: #FFFC00;
+            --col7: #9763f6;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-repeat: repeat;
+            background-color: #808080;
+            font-family: 'Space Mono', monospace;
+            color: black;
+        }
+
+
+        p {
+            font-size: .8rem;
+            font-family: 'Space Mono', monospace;
+        }
+
+        input {
+            margin-left: 0% !important;
+            margin-right: 0% !important;
+            margin-top: 1%;
+            margin-bottom: 1%;
+            width: 100%;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        #loginScreen {
+            height: 100vh;
+            width: 100%;
+            background: #1c1c1c;
+        }
+
+        #loginBox {
+            width: 20%;
+            margin: auto;
+            top: 50%;
+            position: relative;
+            transform: translateY(-50%);
+        }
+
+        .loginTitle {
+            display: flex;
+            font-size: 2rem;
+            justify-content: center;
+        }
+
+        #warning {
+            color: red;
+            visibility: hidden;
+        }
+
+        #main {
+            display: none;
+        }
+
+        .pageTitle {
+            /* width: 30%; */
+            margin: auto;
+            text-align: right;
+            font-size: 1.2rem;
+            padding-left: 2%;
+        }
+
+        .topNav {
+            width: 100%;
+            height: 5%;
+            background-color: #0e0e0e;
+            border-bottom: 2px inset #989898;
+            color: white;
+            display: inline-flex;
+        }
+
+        .topNavLeft {
+            display: flex;
+        }
+
+        .topNavLeft>div {
+            margin: auto;
+            font-size: 1.4rem;
+            margin-left: 10%;
+        }
+
+        .topNavLeft>a {
+            color: #989898;
+            text-decoration: none;
+            margin: auto;
+            font-size: .8rem;
+            margin-left: 20%;
+        }
+
+        .topNavLeft>a:hover {
+            text-decoration: underline;
+        }
+
+
+        .topNavRight {
+            margin-left: auto;
+            display: inline-flex;
+        }
+
+        .button {
+            margin: auto;
+            display: flex;
+            width: 100%;
+            background: grey;
+            border-radius: 2px;
+            cursor: pointer;
+            padding: 1px;
+            margin-right: 10px;
+            justify-content: center;
+        }
+
+        .mintButton {
+            background: var(--col5);
+            color: white;
+            cursor: pointer;
+        }
+
+        .button:hover,
+        .mintButton:hover {
+            filter: brightness(0.8);
+        }
+
+        .centerBar {
+            margin: auto;
+            background-color: #ececec;
+            background-repeat: repeat;
+            width: 60%;
+            border-right: 4px #ff0000;
+            border-left: 4px #3f51b5;
+            border-style: outset;
+            margin-bottom: 3%;
+            box-sizing: border-box;
+            position: relative;
+            margin-top: 5%;
+            margin-left: 30%;
+        }
+
+        .faq {
+            width: 70%;
+            margin-left: 7%;
+            justify-content: center;
+            color: #333;
+            position: relative;
+            display: inherit;
+        }
+
+        .mint {
+            width: 57%;
+            margin-top: 7%;
+            margin-left: 37%;
+            justify-content: center;
+            position: relative;
+            display: inherit;
+        }
+
+        .window {
+            border-bottom: 4px solid black;
+            background: #d1d1d1;
+            padding: 3.14159%;
+
+        }
+
+        .window>h2 {
+            color: #6665e0;
+        }
+
+        .faqItem>h3 {
+            border-bottom: 1px solid;
+            color: black;
+        }
+
+        .barcode {
+            font-family: 'Libre Barcode 39';
+            font-size: 3rem;
+            color: white;
+            overflow: hidden;
+            background: #3a3a3a;
+            margin: -2px;
+            margin-left: -3px;
+            margin-right: -3px;
+            cursor: pointer;
+        }
+
+        .title {
+            display: inline-flex;
+            width: fit-content;
+            margin: auto;
+            font-size: 4rem;
+            color: #444;
+            margin-top: -0.5%;
+            margin-left: 1%;
+            -webkit-text-emphasis-style: double-circle;
+        }
+
+        .quickLinks {
+            width: 100%;
+            display: flex;
+            font-size: .8rem;
+        }
+
+        .quickLink {
+            margin: auto;
+            color: #0e0e0e;
+            text-decoration: underline;
+            font-size: .8rem;
+            margin-bottom: 5%;
+            margin-top: 5%;
+        }
+
+        .quickLink:hover {
+            color: #62aa67;
+        }
+
+        .gallery {
+            width: 70%;
+            margin-left: 15%;
+            margin-right: 15%;
+            display: inline-flex;
+            justify-content: center;
+            margin-bottom: 12%;
+            margin-top: 8%;
+        }
+
+        .example {
+            max-width: 200px;
+            box-sizing: border-box;
+            height: 200px;
+            transition: transform .75s;
+            cursor: pointer;
+            margin: 2%;
+        }
+
+        .example:hover {
+            transform: translate(0px, -20px);
+        }
+
+        .NFT {
+            width: 100%;
+            height: 100%;
+        }
+
+        .close {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: #0c0c0c;
+            z-index: 00;
+            padding: 1%;
+            border: 4px inset #606060;
+            cursor: pointer;
+            width: 20px;
+            text-align: center;
+            color: #a9a8a9;
+        }
+
+        .close:hover {
+            background: #ff1100;
+        }
+
+        .letter {
+            cursor: pointer;
+            transition: transform .75s;
+        }
+
+        .letter:hover {
+            filter: invert(1);
+            transform: translate(0, 20px);
+        }
+
+        .letterOne {
+            color: var(--col3);
+        }
+
+        .letterTwo {
+            color: var(--col4);
+        }
+
+        .letterThree {
+            color: var(--col5);
+        }
+
+        .letterFour {
+            color: var(--col6);
+        }
+
+        .letterFive {
+            color: var(--col7);
+        }
+
+        .letterSix {
+            color: var(--col1);
+        }
+
+        .letterSeven {
+            color: var(--col2)
+        }
+
+        .bottomNav {
+            height: 70px;
+            background: #0e0e0e;
+            display: flex;
+            padding-left: 30%;
+            padding-right: 30%;
+        }
+
+        .bottomIcon {
+            height: 50px;
+            width: 50px;
+            margin: auto;
+            transition: transform 0.2s;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .bottomIcon:hover {
+            transform: translate(0px, -14px);
+        }
+
+        .iconOne {
+            background: var(--col1);
+        }
+
+        .iconTwo {
+            background: var(--col2);
+        }
+
+        .iconThree {
+            background: var(--col3);
+        }
+
+        .iconFour {
+            background: var(--col4);
+        }
+
+        .iconFive {
+            background: var(--col5);
+        }
+
+        .iconSix {
+            background: var(--col6);
+        }
+
+        .iconSeven {
+            background: var(--col7)
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <script>
+
+        function pwdCheck() {
+            const pwd = document.getElementById("pwd").value
+
+            const options = ["https://www.youtube.com/watch?v=dQw4w9WgXcQ", "ffffff", "000000", "nproject"]
+
+            if (options.indexOf(pwd) > 0) {
+                document.getElementById("loginScreen").style.display = "none"
+                document.getElementById("main").style.display = "block"
+            } else document.getElementById("warning").style.visibility = "visible"
+        }
+
+    </script>
+
+    <div id="loginScreen">
+
+        <div id="loginBox">
+
+            <div class="barcode">000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</div>
+            <div class="window">
+
+                <div class="loginTitle">
+                    <div class="letter letterOne">C</div>
+                    <div class="letter letterTwo">O</div>
+                    <div class="letter letterThree">L</div>
+                    <div class="letter letterFour">O</div>
+                    <div class="letter letterFive">U</div>
+                    <div class="letter letterSix">R</div>
+                    <div class="letter letterSeven">S</div>
+                </div>
+
+                <label>User:</label>
+                <input disabled type="text" value="colours_admin">
+                <label>Password:</label>
+                <input id="pwd" type="password">
+
+                <div id="warning">Incorrect Password</div>
+
+                <div class="button" onclick="pwdCheck()">Ok</div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- 000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f -->
+
+    <script>
+
+        let w;
+
+        const abi = [{ "constant": true, "inputs": [], "name": "name", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "_spender", "type": "address" }, { "name": "_value", "type": "uint256" }], "name": "approve", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "totalSupply", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "_from", "type": "address" }, { "name": "_to", "type": "address" }, { "name": "_value", "type": "uint256" }], "name": "transferFrom", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "decimals", "outputs": [{ "name": "", "type": "uint8" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "_owner", "type": "address" }], "name": "balanceOf", "outputs": [{ "name": "balance", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "symbol", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "_to", "type": "address" }, { "name": "_value", "type": "uint256" }], "name": "transfer", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "_owner", "type": "address" }, { "name": "_spender", "type": "address" }], "name": "allowance", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "payable": true, "stateMutability": "payable", "type": "fallback" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "owner", "type": "address" }, { "indexed": true, "name": "spender", "type": "address" }, { "indexed": false, "name": "value", "type": "uint256" }], "name": "Approval", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "from", "type": "address" }, { "indexed": true, "name": "to", "type": "address" }, { "indexed": false, "name": "value", "type": "uint256" }], "name": "Transfer", "type": "event" }]
+        const address = "" // <- TODO: CHANGE THIS WHEN LIVE
+
+        async function connectToMetaMask() {
+
+            await window.web3.currentProvider.enable()
+            w = new Web3(window.web3.currentProvider)
+
+        }
+
+        function mint() {
+
+            let userAddress = document.getElementById("userAddress").value
+
+            if (userAddress !== "") {
+                const myContract = new w.eth.Contract(abi, address);
+                console.log("Coming soon")
+            } else {
+                alert("Please enter a valid ETH address")
+            }
+        }
+
+        function checkSupply() { }
+
+    </script>
+
+    <div id="main">
+
+        <div class="topNav">
+            <div class="topNavLeft">
+                <div>Colours</div>
+            </div>
+
+            <div class="topNavRight">
+                <div class="button" onclick="connectToMetaMask()">
+                    Connect to MetaMask
+                </div>
+            </div>
+        </div>
+
+        <div class="centerBar">
+            <div class="barcode">000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</div>
+            <div class="window">
+                <div class="title">
+                    <div class="letter letterOne">C</div>
+                    <div class="letter letterTwo">O</div>
+                    <div class="letter letterThree">L</div>
+                    <div class="letter letterFour">O</div>
+                    <div class="letter letterFive">U</div>
+                    <div class="letter letterSix">R</div>
+                    <div class="letter letterSeven">S</div>
+                </div>
+                <div class="quickLinks">
+                    <a class="quickLink" href="#">
+                        <div>
+                            OpenSea
+                        </div>
+                    </a>
+                    <a class="quickLink" href="#">
+                        <div>
+                            Discord
+                        </div>
+                    </a>
+                    <a class="quickLink" href="#">
+                        <div>
+                            Twitter
+                        </div>
+                    </a>
+                    <a class="quickLink" href="#">
+                        <div>
+                            Contract
+                        </div>
+                    </a>
+                </div>
+                <div class="close">
+                    <div>X</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="barcode">000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</div>
+            <div class="window">
+                <div class="close">
+                    <div>X</div>
+                </div>
+
+                <h2>FAQ</h2>
+                <div class="faqItem">
+                    <h3>What are Colours?</h3>
+                    <p>Colours are a series of the 10,000 most popular colours on the internet, scraped based on the top
+                        Colours is a study of the most popular colours on the web, scraped based on the top 10,000 sites' page elements. Upon release, any person could claim a random colour from the data set for the mint price plus gas. Colours simply represent blockchain code of a specific hex code for a colour in an Ethereum-compatible token format, with attributes attached as metadata in JSON format.</p>
+                </div>
+
+                <div class="faqItem">
+                    <h3>Where did you source the top 10,000 sites' colours?</h3>
+                    <p>Majestic Million updates its database of top-linked-to websites in the world daily. The .csv file was exported and filtered. The top 10,000 sites were scraped using proprietary code and colours were extracted from page elements to the best of the code's ability.</p>
+                </div>
+
+                <div class="faqItem">
+                    <h3>Why are there 9,839 Colours and not 10,000?</h3>
+                    <p>A number of the top 10,000 sites include redundant domains such as "google.de" or "t.co" which redirect to an existing top ranked site. In order to preserve the accuracy of the data set, these were removed during sanitization protecting the integrity of the data set from overrepresentation of a given entity and creating a final sample of 9,839 colours.</p>
+                </div>
+
+                <div class="faqItem">
+                    <h3>How are Colours valued?</h3>
+                    <p>Colours are not investment products in any way, shape or form. Colours are representations of real-world colours on the blockchain and their value is derived from whatever people choose to do with them. The owner of a particular colour may choose to do things with their colour that creates or destroys value. Attributes exist on JSON files on IPFS referenced by the blockchain code that track the rarity of a colour according to how many websites have used the colour and other metrics. For some significant colours of top websites, the website is assigned to the Colour on the JSON file.</p>
+                </div>
+
+                <div class="faqItem">
+                    <h3>Who is responsible for Colours?</h3>
+                    <p>Colours is a decentralized project with no leadership structure—the initial team simply deploys the code and files for the world. The deployment of the Colours contract and files represents freedom of expression on the blockchain.</p>
+                </div>
+
+                <div class="faqItem">
+                    <h3>How can I build with Colours?</h3>
+                    <p>Through the Colours community, you may reach out to a colour owner and inquire about a collaboration. The Colours' hex code will be uploaded to the blockchain directly on a contract function, allowing people to match Token IDs with onchain data outputting the colour.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mint">
+            <div class="barcode">000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</div>
+            <div class="window">
+
+                <label for="userAddress">Minting Address</label>
+                <input type="text" id="userAddress">
+
+                <div class="button mintButton" onclick="mint()">
+                    Mint
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="gallery">
+            <div class="example">
+                <div class="barcode">000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</div>
+                <img class="NFT"
+                    src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.htmlcsscolor.com%2Fpreview%2Fgallery%2F007FFF.png&amp;f=1&amp;nofb=1" />
+            </div>
+
+            <div class="example">
+                <div class="barcode">000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</div>
+                <img class="NFT"
+                    src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.colorhexa.com%2F779ecb.png&f=1&nofb=1" />
+            </div>
+
+            <div class="example">
+                <div class="barcode">000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</div>
+                <img class="NFT"
+                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.htmlcsscolor.com%2Fpreview%2F128x128%2F99CCFF.png&f=1&nofb=1" />
+            </div>
+        </div>
+
+        <div class="bottomNav">
+            <div class="bottomIcon iconOne"></div>
+            <div class="bottomIcon iconTwo"></div>
+            <div class="bottomIcon iconThree"></div>
+            <div class="bottomIcon iconFour"></div>
+            <div class="bottomIcon iconFive"></div>
+            <div class="bottomIcon iconSix"></div>
+            <div class="bottomIcon iconSeven"></div>
+        </div>
+    </div>
+</body>
+
+</html>
