@@ -388,7 +388,7 @@
 
             const options = ["https://www.youtube.com/watch?v=dQw4w9WgXcQ", "ffffff", "000000", "nproject"]
 
-            if (options.indexOf(pwd) > 0) {
+            if (options.indexOf(pwd) > -1) {
                 document.getElementById("loginScreen").style.display = "none"
                 document.getElementById("main").style.display = "block"
             } else document.getElementById("warning").style.visibility = "visible"
