@@ -2,13 +2,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
     <meta name="description" content="A premium commemorative collection of the top web colours">
     <meta name="keywords" content="NFT, Blockchain, Ethereum">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Colours Project</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -28,7 +28,7 @@
             --col5: #00b1a6;
             --col6: #FFFC00;
             --col7: #9763f6;
-            --col8: #06cc75;
+            --col8: #5daa72;
         }
 
         body {
@@ -42,7 +42,7 @@
 
 
         p {
-            font-size: .8rem;
+            font-size: 1rem;
             font-family: 'Space Mono', monospace;
         }
 
@@ -54,6 +54,8 @@
             width: 100%;
             box-sizing: border-box;
             outline: none;
+            font-size: 1.1rem;
+            padding: 3%;
         }
 
         #loginScreen {
@@ -76,7 +78,7 @@
             justify-content: center;
         }
 
-        #warning {
+        .warning {
             color: red;
             visibility: hidden;
         }
@@ -165,13 +167,12 @@
             box-sizing: border-box;
             position: relative;
             margin-top: 5%;
-            margin-left: 30%;
         }
 
         .faq {
             width: 70%;
-            margin-left: 7%;
-            margin-top: 3%;
+            margin: auto;
+            margin-bottom: 3%;
             justify-content: center;
             color: #333;
             position: relative;
@@ -180,13 +181,10 @@
 
         .mint {
             margin-top: 7%;
-            margin-left: 37%;
+            margin-left: 17%;
+            margin-right: 17%;
             justify-content: center;
             position: relative;
-            display: inherit;
-            margin-bottom: 5%;
-            width: 20%;
-            height: 30%;
         }
 
         .window {
@@ -226,14 +224,14 @@
         .quickLinks {
             width: 100%;
             display: flex;
-            font-size: .8rem;
+            font-size: 1rem;
         }
 
         .quickLink {
             margin: auto;
             color: #0e0e0e;
             text-decoration: underline;
-            font-size: .8rem;
+            font-size: 1rem;
             margin-bottom: 5%;
             margin-top: 5%;
         }
@@ -375,6 +373,12 @@
             background: var(--col7)
         }
 
+
+        .note {
+            font-size: .8rem;
+            font-style: italic;
+        }
+
         @media all and (max-width: 600px) {
 
             body {
@@ -383,10 +387,6 @@
 
             input {
                 padding: 5%;
-            }
-
-            .button {
-                font-size: .9rem;
             }
 
             #loginBox {
@@ -430,13 +430,13 @@
         function pwdCheck() {
             const pwd = document.getElementById("pwd").value
 
-            const options = ["https://www.youtube.com/watch?v=dQw4w9WgXcQ", "ffffff", "000000", "nproject"]
+            const options = ["", "000000", "nproject", "lootproject", "dopewars", "hashpower"]
 
             if (options.indexOf(pwd) > -1) {
                 document.getElementById("loginScreen").style.display = "none"
                 document.getElementById("main").style.display = "block"
             } else {
-                document.getElementById("warning").style.visibility = "visible"
+                document.getElementById("pwdWarning").style.visibility = "visible"
                 document.getElementById("pwd").value = ""
             }
         }
@@ -461,13 +461,13 @@
                 </div>
 
                 <label>User:</label>
-                <input disabled type="text" value="colours_admin">
+                <input type="text" value="colours_admin" disabled>
                 <label>Password:</label>
                 <input id="pwd" type="password">
 
-                <div id="warning">Incorrect Password</div>
+                <div class="warning" id="pwdWarning">Incorrect Password</div>
 
-                <div class="button" onclick="pwdCheck()">Ok</div>
+                <div class="button" onclick="pwdCheck()">Authorize</div>
 
             </div>
 
@@ -486,22 +486,39 @@
         const abi = [{ "constant": true, "inputs": [], "name": "name", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "_spender", "type": "address" }, { "name": "_value", "type": "uint256" }], "name": "approve", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "totalSupply", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "_from", "type": "address" }, { "name": "_to", "type": "address" }, { "name": "_value", "type": "uint256" }], "name": "transferFrom", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "decimals", "outputs": [{ "name": "", "type": "uint8" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "_owner", "type": "address" }], "name": "balanceOf", "outputs": [{ "name": "balance", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "symbol", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "_to", "type": "address" }, { "name": "_value", "type": "uint256" }], "name": "transfer", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "_owner", "type": "address" }, { "name": "_spender", "type": "address" }], "name": "allowance", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "payable": true, "stateMutability": "payable", "type": "fallback" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "owner", "type": "address" }, { "indexed": true, "name": "spender", "type": "address" }, { "indexed": false, "name": "value", "type": "uint256" }], "name": "Approval", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "from", "type": "address" }, { "indexed": true, "name": "to", "type": "address" }, { "indexed": false, "name": "value", "type": "uint256" }], "name": "Transfer", "type": "event" }]
         const address = "" // <- TODO: CHANGE THIS WHEN LIVE
 
+        window.addEventListener("DOMContentLoaded", async function (event) {
+            const accounts = await ethereum.send('eth_requestAccounts');
+
+            if (accounts.result.length > 0) {
+                console.log("logged into meta mask")
+                document.getElementById("metaMaskConnectButton").innerText = "Connected to MetaMask"
+                document.getElementById("metaMaskConnectButton").setAttribute("onclick", "")
+                document.getElementById("metaMaskConnectButton").style.background = "#5daa72"
+            } else {
+                console.log("need to log in to metamask")
+            }
+        })
+
         async function connectToMetaMask() {
 
-            await window.web3.currentProvider.enable()
-            w = new Web3(window.web3.currentProvider)
+            await window.ethereum.enable()
+            w = new Web3(window.ethereum)
 
         }
 
         function mint() {
 
-            let mintAmount = document.getElementById("mintAmount").value
+            const mintAmount = document.getElementById("mintAmount")
+            const mintVal = mintAmount.value
 
-            if (mintAmount !== "") {
+            if (mintVal !== "" && mintVal >= 1 && mintVal <= 20) {
+                document.getElementById("mintWarning").style.visibility = "hidden"
+                // w.eth must be active or found here
                 const myContract = new w.eth.Contract(abi, address);
                 console.log("Coming soon")
             } else {
-                alert("Please enter a valid ETH address")
+                document.getElementById("mintWarning").style.visibility = "visible"
+                mintAmount.value = ""
             }
         }
 
@@ -517,7 +534,7 @@
             </div>
 
             <div class="topNavRight">
-                <div class="button" onclick="connectToMetaMask()">
+                <div id="metaMaskConnectButton" class="button" onclick="connectToMetaMask()">
                     Connect to MetaMask
                 </div>
             </div>
@@ -560,6 +577,19 @@
                 <div class="close">
                     <div>X</div>
                 </div>
+
+                <div class="mint">
+                    <label for="mintAmount">Mint Amount <span class="note">(0.05 Ξ per Colour)</span></label>
+                    <input type="number" id="mintAmount" min="1" max="20">
+
+                    <div class="button mintButton" onclick="mint()">
+                        Mint
+                    </div>
+
+                    <div class="warning" id="mintWarning">Invalid minting amount. Please enter an amount between 1-20
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -568,10 +598,18 @@
             <div class="window">
                 <div class="faqItem">
                     <h3>What are Colours?</h3>
-                    <p>Colours are a series of the 10,000 most popular colours on the internet, scraped based on the top
-                        Colours is a study of the most popular colours on the web, scraped based on the top 10,000 sites' page elements. Upon release, any person could claim a random colour from the data set for the mint price plus gas. Colours simply represent blockchain code of a specific hex code for a colour in an Ethereum-compatible token format, with attributes attached as metadata in JSON format.</p>
+                    <p>Colours is a scraping study of the most popular colours on the web, based on the top 10,000
+                        sites' page elements. Upon release, any person could claim a random colour from the data set for
+                        the mint price plus gas. Colours simply represent blockchain code of a specific hex code for a
+                        colour in an Ethereum-compatible token format, with attributes attached as metadata in JSON
+                        format.</p>
+                    <h3>Why should I mint a Colour?</h3>
+                    <p>Each NFT represents a colour that has some prestige to it based on which websites use it on the
+                        internet. Some colours are especially rare given that they represent a popular brand's identity.
+                        You may roll a random rare colour or you may roll a significant website's colour, of which there
+                        are only [[[[[insert number here]]]].
+                    </p>
                 </div>
-            
             </div>
         </div>
 
@@ -580,7 +618,9 @@
             <div class="window">
                 <div class="faqItem">
                     <h3>Where did you source the top 10,000 sites' colours?</h3>
-                    <p>Majestic Million updates its database of top-linked-to websites in the world daily. The .csv file was exported and filtered. The top 10,000 sites were scraped using proprietary code and colours were extracted from page elements to the best of the code's ability.</p>
+                    <p>Majestic Million updates its database of top-linked-to websites in the world daily. The .csv file
+                        was exported and filtered. The top 10,000 sites were scraped using proprietary code and colours
+                        were extracted from page elements to the best of the code's ability.</p>
                 </div>
             </div>
         </div>
@@ -590,7 +630,10 @@
             <div class="window">
                 <div class="faqItem">
                     <h3>Why are there 9,839 Colours and not 10,000?</h3>
-                    <p>A number of the top 10,000 sites include redundant domains such as "google.de" or "t.co" which redirect to an existing top ranked site. In order to preserve the accuracy of the data set, these were removed during sanitization protecting the integrity of the data set from overrepresentation of a given entity and creating a final sample of 9,839 colours.</p>
+                    <p>A number of the top 10,000 sites include redundant domains such as "google.de" or "t.co" which
+                        redirect to an existing top ranked site. In order to preserve the accuracy of the data set,
+                        these were removed during sanitization protecting the integrity of the data set from
+                        overrepresentation of a given entity and creating a final sample of 9,839 colours.</p>
                 </div>
             </div>
         </div>
@@ -600,7 +643,13 @@
             <div class="window">
                 <div class="faqItem">
                     <h3>How are Colours valued?</h3>
-                    <p>Colours are not investment products in any way, shape or form. Colours are representations of real-world colours on the blockchain and their value is derived from whatever people choose to do with them. The owner of a particular colour may choose to do things with their colour that creates or destroys value. Attributes exist on JSON files on IPFS referenced by the blockchain code that track the rarity of a colour according to how many websites have used the colour and other metrics. For some significant colours of top websites, the website is assigned to the Colour on the JSON file.</p>
+                    <p>Colours are not investment products in any way, shape or form. Colours are representations of
+                        real-world colours on the blockchain and their value is derived from whatever people choose to
+                        do with them. The owner of a particular colour may choose to do things with their colour that
+                        creates or destroys value. Attributes exist on JSON files on IPFS referenced by the blockchain
+                        code that track the rarity of a colour according to how many websites have used the colour and
+                        other metrics. For some significant colours of top websites, the website is assigned to the
+                        Colour on the JSON file.</p>
                 </div>
             </div>
         </div>
@@ -610,7 +659,12 @@
             <div class="window">
                 <div class="faqItem">
                     <h3>Who is responsible for Colours?</h3>
-                    <p>Colours is a decentralized project with no leadership structure—the initial team simply deploys the code and files for the world. The deployment of the Colours contract and files represents freedom of expression on the blockchain.</p>
+                    <p>Colours is a decentralized project with no leadership structure—the initial team simply deploys
+                        the code and files for the world. The deployment of the Colours contract and files represents
+                        freedom of expression on the blockchain.</p>
+                    <p>439 Colours will be randomly minted to the developer wallet. If any website-specific rare Colours
+                        are minted to the developer wallet, they are to be given away to the Discord community to ensure
+                        fairness.</p>
                 </div>
             </div>
         </div>
@@ -620,23 +674,15 @@
             <div class="window">
                 <div class="faqItem">
                     <h3>How can I build with Colours?</h3>
-                    <p>Through the Colours community, you may reach out to a colour owner and inquire about a collaboration. The Colours' hex code will be uploaded to the blockchain directly on a contract function, allowing people to match Token IDs with onchain data outputting the colour.</p>
+                    <p>Through the Colours community, you may reach out to a colour owner and inquire about a
+                        collaboration. The Colours' hex code will be uploaded to the blockchain directly on a contract
+                        function, allowing people to match Token IDs with onchain data outputting the colour.
+                    </p>
+                    <p>
+                        An example includes combining your Colours Project hex code and N Project numbers and generating
+                        an on-chain/off-chain non-random generative art based on the colours and numbers. There is no
+                        ceiling on what can be done with your Colours hex code.</p>
                 </div>
-            </div>
-        </div>
-
-        <div class="mint">
-            <div class="barcode">000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</div>
-            <div class="window">
-
-                <label for="userAddress">Mint Amount</label>
-                <input type="text" id="mintAmount" disabled>
-
-                <div class="button mintButton" onclick="mint()">
-                    Mint
-                </div>
-
-
             </div>
         </div>
 
