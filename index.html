@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Colours Project</title>
-    <meta name="description" content="Randomly mint the web's top 9839 colours in this premium collection, stored on chain. Participate in this new Web 3.0 infrastructure project.">
+    <meta name="description"
+        content="Randomly mint the web's top 9839 colours in this premium collection, stored on chain. Participate in this new Web 3.0 infrastructure project.">
 
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://colours.black/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Colours Project">
-    <meta property="og:description" content="Randomly mint the web's top 9839 colours in this premium collection, stored on chain. Participate in this new Web 3.0 infrastructure project.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/coloursproject/coloursproject.github.io/main/cover2.png">
+    <meta property="og:description"
+        content="Randomly mint the web's top 9839 colours in this premium collection, stored on chain. Participate in this new Web 3.0 infrastructure project.">
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/coloursproject/coloursproject.github.io/main/cover2.png">
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="">
     <meta property="twitter:url" content="https://colours.black/">
     <meta name="twitter:title" content="Colours Project">
-    <meta name="twitter:description" content="Randomly mint the web's top 9839 colours in this premium collection, stored on chain. Participate in this new Web 3.0 infrastructure project.">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/coloursproject/coloursproject.github.io/main/cover2.png">
+    <meta name="twitter:description"
+        content="Randomly mint the web's top 9839 colours in this premium collection, stored on chain. Participate in this new Web 3.0 infrastructure project.">
+    <meta name="twitter:image"
+        content="https://raw.githubusercontent.com/coloursproject/coloursproject.github.io/main/cover2.png">
 
     <link rel="shortcut icon" type="image/png" href="favicon.png" />
     <meta name="keywords" content="NFT, Blockchain, Ethereum">
@@ -33,6 +38,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="glider.min.css">
+    <script src="glider.min.js"></script>
+
 
     <style>
         :root {
@@ -55,10 +64,13 @@
             color: black;
         }
 
-
         p {
             font-size: 1rem;
             font-family: 'Space Mono', monospace;
+        }
+
+        label {
+            color: #a5a5a5;
         }
 
         input {
@@ -73,10 +85,15 @@
             padding: 3%;
         }
 
+        h2 {
+            color: #a5a5a5;
+            text-align: center;
+        }
+
         #loginScreen {
             height: 100vh;
             width: 100%;
-            background: #1c1c1c;
+            background: #000;
         }
 
         #loginBox {
@@ -100,6 +117,7 @@
 
         #main {
             display: none;
+            background: #1e1e1e;
         }
 
         .pageTitle {
@@ -174,7 +192,7 @@
             margin: auto;
             background-color: #ececec;
             background-repeat: repeat;
-            width: 60%;
+            width: 70%;
             border-right: 4px #ff0000;
             border-left: 4px #3f51b5;
             border-style: outset;
@@ -184,12 +202,26 @@
             margin-top: 5%;
         }
 
+        .glider-slide {
+            margin: 5px;
+        }
+
+        .caroText {
+            position: absolute;
+            color: #191919;
+            font-weight: 600;
+            text-align: center;
+            width: 150;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
         .faq {
             width: 70%;
             margin: auto;
             margin-bottom: 3%;
             justify-content: center;
-            color: #333;
+            color: #a5a5a5;
             position: relative;
             display: inherit;
         }
@@ -200,11 +232,12 @@
             margin-right: 17%;
             justify-content: center;
             position: relative;
+            color: #a5a5a5
         }
 
         .window {
             border-bottom: 4px solid black;
-            background: #d1d1d1;
+            background: #2f2f2f;
             padding: 3.14159%;
 
         }
@@ -218,7 +251,7 @@
             font-size: 3rem;
             color: white;
             overflow: hidden;
-            background: #3a3a3a;
+            background: #0e0e0e;
             margin: -2px;
             margin-left: -3px;
             margin-right: -3px;
@@ -244,7 +277,7 @@
 
         .quickLink {
             margin: auto;
-            color: #0e0e0e;
+            color: #a5a5a5;
             text-decoration: underline;
             font-size: 1rem;
             margin-bottom: 5%;
@@ -426,6 +459,7 @@
                 margin-left: 5%;
                 margin-right: 5%;
                 width: 90%;
+                color: #a5a5a5;
             }
 
             .bottomNav {
@@ -593,6 +627,74 @@
                     <div>X</div>
                 </div>
 
+                <div>
+                    <h2>Mintable Samples</h2>
+                </div>
+
+                <div class="glider-contain">
+                    <div class="glider">
+                        <div>
+                            <img src="one.png">
+                        </div>
+                        <div>
+                            <div class="caroText">
+                                spotify.com
+                            </div>
+                            <img src="two.png">
+                        </div>
+                        <div>
+                            <img src="three.png">
+                        </div>
+                        <div>
+                            <div class="caroText">
+                                chick-fil-a.com
+                            </div>
+                            <img src="four.png">
+                        </div>
+                        <div>
+                            <img src="five.png">
+                        </div>
+                        <div>
+                            <img src="six.png">
+                        </div>
+                        <div>
+                            <div class="caroText">
+                                mcdonalds.com
+                            </div>
+                            <img src="seven.png">
+                        </div>
+                        <div>
+                            <img src="eight.png">
+                        </div>
+
+                        <div>
+                            <img src="nine.png">
+                        </div>
+                        <div>
+                            <div class="caroText">
+                                rare alpha channel
+                            </div>
+                            <img src="ten.png">
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+
+                    let caro;
+                    window.addEventListener("load", function () {
+                        caro = new Glider(document.querySelector(".glider"), {
+                            draggable: true,
+                            dragVelocity: 2,
+                            slidesToShow: 3,
+                            itemWidth: 300,
+                            rewind: true,
+                            duration: 0.5,
+                        })
+                    })
+
+                </script>
+
                 <div class="mint">
                     <label for="mintAmount">Mint Amount <span class="note">(0.05 Ξ per Colour)</span></label>
                     <input type="number" id="mintAmount" min="1" max="20">
@@ -622,7 +724,7 @@
                     <p>Each NFT represents a colour that has some prestige to it based on which websites use it on the
                         internet. Some colours are especially rare given that they represent a popular brand's identity.
                         You may roll a random rare colour or you may roll a significant website's colour, of which there
-                        are only [[[[[insert number here]]]].
+                        are only a small number.
                     </p>
                 </div>
             </div>
@@ -658,13 +760,11 @@
             <div class="window">
                 <div class="faqItem">
                     <h3>How are Colours valued?</h3>
-                    <p>Colours are not investment products in any way, shape or form. Colours are representations of
-                        real-world colours on the blockchain and their value is derived from whatever people choose to
-                        do with them. The owner of a particular colour may choose to do things with their colour that
-                        creates or destroys value. Attributes exist on JSON files on IPFS referenced by the blockchain
-                        code that track the rarity of a colour according to how many websites have used the colour and
-                        other metrics. For some significant colours of top websites, the website is assigned to the
-                        Colour on the JSON file.</p>
+                    <p>Colours are not investment products in any way, shape or form. Colours are representations of real-world colours on the blockchain and their value is derived from whatever people choose to do with them. The owner of a particular colour may choose to do things with their colour that
+                    creates or destroys value.</p>
+                    <p>Attributes exist on JSON files on IPFS referenced by the blockchain code that track the rarity of a colour according to how many websites have used the colour and other metrics.</p>
+                    <p>For some significant colours of top websites, the website is assigned to the Colour on the JSON file. There are also a small number of Colours  containing alpha channels (8 characters instead of 6) which are also rare.
+                    </p>
                 </div>
             </div>
         </div>
@@ -689,14 +789,9 @@
             <div class="window">
                 <div class="faqItem">
                     <h3>How can I build with Colours?</h3>
-                    <p>Through the Colours community, you may reach out to a colour owner and inquire about a
-                        collaboration. The Colours' hex code will be uploaded to the blockchain directly on a contract
-                        function, allowing people to match Token IDs with onchain data outputting the colour.
-                    </p>
-                    <p>
-                        An example includes combining your Colours Project hex code and N Project numbers and generating
-                        an on-chain/off-chain non-random generative art based on the colours and numbers. There is no
-                        ceiling on what can be done with your Colours hex code.</p>
+                    <p>Colours Project aims to be a community-built bottom-up lego project and create infrastructure for on-chain and off-chain Web 3.0 development related projects.</p>
+                    <p>Through the Colours community, you may reach out to a colour owner and inquire about a collaboration. The Colours' hex code will be uploaded to the blockchain directly on a contract function, allowing people to match Token IDs with onchain data outputting the colour.</p>
+                    <p>An example includes combining your Colours Project hex code and N Project numbers and generating an on-chain/off-chain non-random generative art based on the colours and numbers. There is no ceiling on what can be done with your Colours hex code.</p>
                 </div>
             </div>
         </div>
